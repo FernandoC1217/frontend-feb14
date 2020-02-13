@@ -28,7 +28,7 @@
     "ieee",
     "project"
   ],
-  "proxy": "http://localhost:5000",
+  "proxy": "https://ieee-backend-utp.herokuapp.com/",
   "author": "Fernando Cutire",
   "license": "MIT",
   "browserslist": {
