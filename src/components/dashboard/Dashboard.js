@@ -31,6 +31,8 @@ class Dashboard extends Component {
                 ¡Feliz día del amor y la amistad!{" "}
                 <span style={{ fontFamily: "monospace" }}>♥</span>
               </p>
+              <h1>{checked ? "" : ""}</h1>
+            <HeartCheckbox checked={checked} onClick={this.onClick} />
             </h4>
             <button
               style={{
@@ -44,8 +46,7 @@ class Dashboard extends Component {
             >
               Logout
             </button>{" "}
-            <h1>{checked ? "" : ""}</h1>
-            <HeartCheckbox checked={checked} onClick={this.onClick} />
+            
           </div>
         </div>
       </div>
