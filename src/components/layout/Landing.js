@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import Pie from "../ChartJS/Pie";
+// import Pie from "../ChartJS/Pie";
 
 class Landing extends Component {
   state = {};
@@ -11,9 +11,8 @@ class Landing extends Component {
           <div className="row">
             <div className="col s12 center-align">
               <h4>
-                <b>Ingresa</b> a login/auth app with the{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> stack from
-                scratch
+                <b>Ingresa</b> a esta plataforma construida con el{" "}
+                <span style={{ fontFamily: "monospace" }}>MERN</span> stack desde cero
               </h4>
               <p className="flow-text grey-text text-darken-1">
                 Bienvenido a mi nuevo sistema de ingreso

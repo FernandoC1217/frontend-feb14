@@ -2,22 +2,34 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { logoutUser } from "../../actions/authActions";
+import HeartCheckbox from "react-heart-checkbox";
+
 class Dashboard extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: true
+    };
+  }
   onLogoutClick = e => {
     e.preventDefault();
     this.props.logoutUser();
   };
+  onClick = (event, props) => {
+    this.setState({ checked: !this.state.checked });
+  };
   render() {
+    const { checked } = this.state;
     const { user } = this.props.auth;
     return (
       <div style={{ height: "75vh" }} className="container valign-wrapper">
         <div className="row">
           <div className="col s12 center-align">
             <h4>
-              <b>Hey there,</b> {user.name.split(" ")[0]}
+              <b>Hey</b> {user.name.split(" ")[0]}
               <p className="flow-text grey-text text-darken-1">
-                You are logged into a full-stack{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> app 👏
+                ¡Feliz día del amor y la amistad!{" "}
+                <span style={{ fontFamily: "monospace" }}>♥</span>
               </p>
             </h4>
             <button
@@ -31,7 +43,9 @@ class Dashboard extends Component {
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
             >
               Logout
-            </button>
+            </button>{" "}
+            <h1>{checked ? "" : ""}</h1>
+            <HeartCheckbox checked={checked} onClick={this.onClick} />
           </div>
         </div>
       </div>
