@@ -20,7 +20,7 @@ export const registerUser = (userData, history) => dispatch => {
 // Login - get user token
 export const loginUser = userData => dispatch => {
   axios
-    .post("/api/users/login", userData)
+    .post("https://ieee-backend-utp.herokuapp.com/api/users/login", userData)
     .then(res => {
       // Save to localStorage
 
