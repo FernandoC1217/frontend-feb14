@@ -28,7 +28,6 @@
     "ieee",
     "project"
   ],
-  //"proxy": "https://ieee-backend-utp.herokuapp.com/",
   "author": "Fernando Cutire",
   "license": "MIT",
   "browserslist": {
