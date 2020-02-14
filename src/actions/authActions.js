@@ -1,26 +1,33 @@
-import axios from "axios";
+// import axios from "axios";
+import api from "../API/index";
 import setAuthToken from "../utils/setAuthToken";
 import jwt_decode from "jwt-decode";
+import cogoToast from "cogo-toast"
 
 import { GET_ERRORS, SET_CURRENT_USER, USER_LOADING } from "./types";
 
 // Register User
 export const registerUser = (userData, history) => dispatch => {
-  axios
-    .post("/api/users/register", userData)
-    .then(res => history.push("/login"))
+  api
+    .postRegister(userData)
+    .then(res => {
+      history.push("/dashboard");
+      cogoToast.success("Gracias por registrarse");
+    })
     .catch(err =>
-      dispatch({
+      {dispatch({
         type: GET_ERRORS,
-        payload: err
-      })
+        payload: err.response.data
+      }) 
+      cogoToast.error('Error al registrase. Verifica los campos ');
+    }
     );
 };
 
 // Login - get user token
 export const loginUser = userData => dispatch => {
-  axios
-    .post("https://ieee-backend-utp.herokuapp.com/api/users/login", userData)
+  api
+    .postLogin(userData)
     .then(res => {
       // Save to localStorage
 
@@ -33,12 +40,15 @@ export const loginUser = userData => dispatch => {
       const decoded = jwt_decode(token);
       // Set current user
       dispatch(setCurrentUser(decoded));
+      cogoToast.success("Inicio de sesión exitoso");
     })
     .catch(err =>
-      dispatch({
+      {dispatch({
         type: GET_ERRORS,
         payload: err.response.data
       })
+      cogoToast.error('Error al iniciar sesión. Verifica los campos ');
+    }
     );
 };
 
