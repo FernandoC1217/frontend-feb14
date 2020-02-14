@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import {  Link } from "react-router-dom";
+import { Link } from "react-router-dom";
+import Pie from "../ChartJS/Pie";
 
 class Landing extends Component {
   state = {};
@@ -44,6 +45,14 @@ class Landing extends Component {
               </Link>
             </div>
           </div>
+        </div>
+        <div className="col s12 center-align">
+          <Pie
+            data={[1035, 1342, 283]}
+            labels={["Angular", "React", "Vue"]}
+            title={"Frameworks"}
+            color={["rgb(145, 151, 174)", "#f02d3a", "#273043"]}
+          ></Pie>
         </div>
       </div>
     );
