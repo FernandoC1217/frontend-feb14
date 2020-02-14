@@ -47,6 +47,7 @@ class Landing extends Component {
             </div>
           </div>
         </div>
+          <figcaption>Se han registrado <b>10</b> personas, hasta ahora</figcaption>
         
         {/* <div style={{ height: "75vh" }} className="container valign-wrapper">
           <div className="row">
