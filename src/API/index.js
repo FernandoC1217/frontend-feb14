@@ -5,7 +5,7 @@ const api = axios.create({
 });
 
 export const getAll = () => api.get("/");
-export const getUsers = () => api.get("/users");
+export const getUsers = () => api.get("/usuarios");
 export const postLogin = content => api.post("/login", content);
 export const postRegister = content => api.post("/register", content);
 

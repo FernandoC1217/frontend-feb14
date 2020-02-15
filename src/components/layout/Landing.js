@@ -1,9 +1,20 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import api from "../../API/index";
+
 // import Pie from "../ChartJS/Pie";
 
 class Landing extends Component {
-  state = {};
+  state = { user: [] };
+  componentDidMount() {
+    api
+      .getUsers()
+      .then(ress => {
+        console.log(ress.data.length);
+        this.setState({ user: ress.data.length })})
+      .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="col s12 center-align">
@@ -12,7 +23,8 @@ class Landing extends Component {
             <div className="col s12 center-align">
               <h4>
                 <b>Ingresa</b> a esta plataforma construida con el{" "}
-                <span style={{ fontFamily: "monospace" }}>MERN</span> stack desde cero
+                <span style={{ fontFamily: "monospace" }}>MERN</span> stack
+                desde cero
               </h4>
               <p className="flow-text grey-text text-darken-1">
                 Bienvenido a mi nuevo sistema de ingreso
@@ -47,8 +59,10 @@ class Landing extends Component {
             </div>
           </div>
         </div>
-          <figcaption>Se han registrado <b>10</b> personas, hasta ahora</figcaption>
-        
+        <figcaption>
+                Se han registrado <b>{this.state.user}</b> personas, hasta ahora
+        </figcaption>
+
         {/* <div style={{ height: "75vh" }} className="container valign-wrapper">
           <div className="row">
             <div className="col s12 center-align">
